@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Custom songs with your person's name in it. Sweet toasts or savage roasts. $29, ready in a day.">
+<meta property="og:title" content="Roast &amp; Toast Records">
+<meta property="og:description" content="Custom songs with their name in it. Sweet or savage. $29, ready in a day.">
+<meta property="og:image" content="https://paulyservices-sketch.github.io/roast-and-toast/img/hero.jpg">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Roast &amp; Toast Records</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one dark concert stage. Parallax hero, sample "setlist" of covers, three ticket-stub packages, order card. Single dark look on purpose. */
+:root{
+  --stage:#0d0a10; --wing:#17121c; --spot:#f2b544; --ember:#d9622b; --ink:#f4ede4; --haze:#a99fb2; --line:#2e2636;
+  --display:"DM Serif Display",Georgia,serif; --body:"Outfit",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--stage);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:var(--spot)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--spot)}
+button,.btn{font:600 16px var(--body);border:0;border-radius:999px;padding:14px 26px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-main{background:var(--spot);color:var(--stage)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--spot);outline-offset:3px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:620px;display:flex;align-items:flex-end;isolation:isolate}
+.layer{position:absolute;inset:-60px 0;background-size:cover;background-position:center;will-change:transform}
+.l-back{background-image:url(img/layer_back2.jpg);z-index:-4}
+.l-hero{background-image:url(img/hero.jpg);z-index:-3;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 72% 50%,#000 40%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 72% 50%,#000 40%,transparent 75%)}
+.l-mid{background-image:url(img/layer_mid.jpg);z-index:-2;mix-blend-mode:screen;opacity:.8}
+.l-front{background-image:url(img/layer_front.jpg);z-index:-1;mix-blend-mode:screen;background-position:bottom}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--stage) 0%,rgba(13,10,16,.75) 40%,transparent 75%),linear-gradient(0deg,var(--stage),transparent 35%)}
+.hero>.wrap{padding-block:120px 72px;width:100%}
+.hero h1{font-size:clamp(44px,7.5vw,96px);max-width:11ch}
+.hero h1 em{color:var(--spot)}
+.hero p{max-width:34ch;font-size:20px;color:var(--ink);margin:20px 0 32px}
+.hero h1,.hero p,.hero .eyebrow{text-shadow:0 2px 18px rgba(0,0,0,.85),0 1px 3px rgba(0,0,0,.9)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+nav{position:absolute;top:0;left:0;right:0;z-index:2}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:20px}
+.logo{font-family:var(--display);font-size:24px;white-space:nowrap}
+.links{display:flex;gap:24px}
+.logo b{color:var(--spot);font-weight:400}
+nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+
+section{padding-block:88px}
+.sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:640px}
+.sec-head h2{font-size:clamp(36px,5vw,56px)}
+.sec-head p{color:var(--haze);margin:0}
+
+/* setlist */
+.setlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.track{display:grid;gap:14px;min-width:0}
+.cover{position:relative;aspect-ratio:1;max-width:100%;border-radius:14px;overflow:hidden;background:var(--wing) center/cover}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,10,16,.85),transparent 55%)}
+.cover .tag{position:absolute;left:16px;top:16px;z-index:1;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(13,10,16,.7);padding:6px 10px;border-radius:999px;color:var(--spot)}
+.cover h3{position:absolute;left:16px;right:72px;bottom:16px;z-index:1;font-size:26px}
+.play{position:absolute;right:14px;bottom:14px;z-index:1;width:52px;height:52px;padding:0;justify-content:center;border-radius:50%;background:var(--spot);color:var(--stage)}
+.play svg{width:20px;height:20px}
+.track.on .cover{box-shadow:0 0 0 2px var(--spot),0 20px 60px -20px var(--spot)}
+.meta{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--haze)}
+.bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--spot)}
+details{font-size:14px;color:var(--haze)}
+details summary{cursor:pointer;color:var(--ink)}
+details pre{white-space:pre-wrap;font-family:var(--body);margin:10px 0 0}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.step img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:12px;background:var(--wing)}
+.step h3{font-size:28px;margin:16px 0 6px}
+.step p{color:var(--haze);margin:0}
+.step .eyebrow{display:block;margin-top:14px}
+
+/* tickets */
+.tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.ticket{position:relative;background:var(--wing);border-radius:16px;padding:32px 28px;display:grid;gap:16px;align-content:start;border:1px solid var(--line)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:118px;width:26px;height:26px;border-radius:50%;background:var(--stage)}
+.ticket::before{left:-13px}.ticket::after{right:-13px}
+.ticket.star{border-color:var(--spot)}
+.ticket h3{font-size:30px}
+.price{font-family:var(--display);font-size:64px;color:var(--spot);line-height:1;border-bottom:2px dashed var(--line);padding-bottom:18px}
+.price small{font-family:var(--body);font-size:16px;color:var(--haze)}
+.ticket ul{margin:0;padding-left:20px;color:var(--haze);display:grid;gap:6px}
+.ticket button{justify-self:start}
+
+/* order */
+.order{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.order>*{min-width:0}
+form{background:var(--wing);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:16px}
+label{display:grid;gap:6px;font-size:14px;font-weight:600}
+input,select,textarea{font:400 16px var(--body);color:var(--ink);background:var(--stage);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+textarea{min-height:120px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{font-size:13px;color:var(--haze);margin:0}
+.done{background:rgba(242,181,68,.1);border:1px solid var(--spot);border-radius:12px;padding:16px;font-size:15px}
+.faq{display:grid;gap:4px;max-width:760px}
+.faq details{border-bottom:1px solid var(--line);padding-block:18px;font-size:16px}
+.faq summary{font-weight:600;font-size:18px}
+.faq p{margin:10px 0 0}
+footer{border-top:1px solid var(--line);padding-block:40px;color:var(--haze);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+@media (max-width:760px){.order{grid-template-columns:1fr}.row2{grid-template-columns:1fr}.hero{min-height:0}nav .links{display:none}.logo{font-size:20px}
+.hero>.wrap{padding-block:96px 48px}.l-hero{opacity:.35;-webkit-mask-image:none;mask-image:none}.l-front{opacity:.5}
+.hero::after{background:linear-gradient(180deg,rgba(13,10,16,.55),rgba(13,10,16,.8) 60%,var(--stage))}.hero p{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.layer{transform:none!important}}
+</style>
+
+</head><body>
+<header class="hero" id="top">
+  <div class="layer l-back" data-depth=".15"></div>
+  <div class="layer l-hero" data-depth=".3"></div>
+  <div class="layer l-mid" data-depth=".5"></div>
+  <div class="layer l-front" data-depth=".8"></div>
+  <nav><div class="wrap"><span class="logo">Roast <b>&amp;</b> Toast <b>Records</b></span><span class="links"><a href="#listen">Listen</a><a href="#prices">Prices</a><a href="#faq">FAQ</a></span></div></nav>
+  <div class="wrap">
+    <div class="eyebrow">Custom songs · sweet or savage</div>
+    <h1>Roast 'em or toast 'em. <em>We sing it.</em></h1>
+    <p>Tell us about your person. We write the words and make a real, full song with their name in it, from a tearjerker toast to a savage roast. Ready in a day for $29.</p>
+    <div class="cta"><a class="btn btn-main" href="#order">Order a song</a><a class="btn btn-ghost" href="#listen">Hear samples</a></div>
+  </div>
+</header>
+
+<main>
+<section id="listen"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">The setlist</span><h2>Six songs we made this week</h2><p>Every one of these started as a few lines from a customer form. Tap play.</p></div>
+  <div class="setlist" id="setlist"></div>
+</div></section>
+
+<section style="background:var(--wing)"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">How it works</span><h2>Three steps, about a day</h2></div>
+  <div class="steps">
+    <div class="step"><img src="img/step_tell.jpg" alt="A phone and a handwritten note on a desk"><span class="eyebrow">Step 1</span><h3>Tell us the story</h3><p>Names, inside jokes, the way she laughs. Pick a style: country, rock, R&amp;B, gospel, metal, rap.</p></div>
+    <div class="step"><img src="img/step_make2.jpg" alt="A glowing studio mixing desk"><span class="eyebrow">Step 2</span><h3>We make it</h3><p>Lyrics get written to rhyme, then the song is sung and checked word by word. Only the best take ships.</p></div>
+    <div class="step"><img src="img/step_play.jpg" alt="A family listening to music together"><span class="eyebrow">Step 3</span><h3>Play it for them</h3><p>You get a private link to stream and download the MP3. Yours to keep forever.</p></div>
+  </div>
+</div></section>
+
+<section id="prices"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Tickets</span><h2>Pick your song</h2><p>One price, no subscription. Paid securely by card through Stripe.</p></div>
+  <div class="tickets">
+    <div class="ticket"><h3>The Song</h3><div class="price">$29</div><ul><li>Full custom song, about 2 minutes</li><li>Their names and your stories in the words</li><li>Any style you like</li><li>MP3 download, ready within 24 hours</li></ul><button class="btn-ghost pick" data-pkg="song">Choose The Song</button></div>
+    <div class="ticket star"><h3>The Duet</h3><div class="price">$49</div><ul><li>Everything in The Song</li><li>Male and female voices trading verses</li><li>Lyric video you can post or text</li><li>Ready within 24 hours</li></ul><button class="btn-main pick" data-pkg="duet">Choose The Duet</button></div>
+    <div class="ticket"><h3>Rush</h3><div class="price">$79</div><ul><li>The Duet, moved to the front of the line</li><li>Ready the same day</li><li>One free lyric fix if we missed a detail</li><li>For parties happening tonight</li></ul><button class="btn-ghost pick" data-pkg="rush">Choose Rush</button></div>
+  </div>
+</div></section>
+
+<section id="order" style="background:var(--wing)"><div class="wrap order">
+  <div class="sec-head"><span class="eyebrow">Order form</span><h2>Tell us who it's for</h2><p>The more you tell us, the better the song. Real details beat big words: the dog's name, the burnt burgers, the song they always hum.</p><p class="note" style="margin-top:12px">Card checkout opens this week.</p></div>
+  <form id="f" novalidate>
+    <label for="pkg">Package<select id="pkg"><option value="song">The Song · $29</option><option value="duet">The Duet · $49</option><option value="rush">Rush · $79</option></select></label>
+    <div class="row2"><label for="who">Who is it for?<input id="who" placeholder="Grandma Rose" required></label><label for="occ">Occasion<select id="occ"><option>Birthday</option><option>Wedding</option><option>Anniversary</option><option>Pet song</option><option>Memorial</option><option>Funny roast</option><option>Just because</option></select></label></div>
+    <label for="style">Style<select id="style"><option>Country</option><option>Rock</option><option>R&amp;B / Soul</option><option>Gospel</option><option>Heavy metal</option><option>Rap</option><option>Pop</option><option>Gothic</option></select></label>
+    <label for="story">The story<textarea id="story" placeholder="She's turning 80, grows tomatoes, calls everybody 'sugar', and still beats us all at cards." required></textarea></label>
+    <label for="email">Your email (we send the song link here)<input id="email" type="email" placeholder="you@example.com" required></label>
+    <button class="btn-main" type="submit">Continue to payment</button>
+    <p class="note">Songs are made with AI music tools, guided and checked by a person. Please don't use real copyrighted lyrics or ask for a famous singer's voice.</p>
+    <div class="done" id="done" hidden></div>
+  </form>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Questions</span><h2>Good to know</h2></div>
+  <div class="faq">
+    <details><summary>How long does it take?</summary><p>The Song and The Duet are ready within 24 hours, usually sooner. Rush is ready the same day. You can watch your place in line on your order page.</p></details>
+    <details><summary>Do I get to keep it?</summary><p>Yes. Download the MP3 and it's yours forever. Your private link stays open for 60 days so you have plenty of time to save it.</p></details>
+    <details><summary>Is this made with AI?</summary><p>Yes. The music and voices are made with AI tools running on our own studio computer. A person reads your story, checks the words and only sends the best take.</p></details>
+    <details><summary>Can I use it at my wedding or post it online?</summary><p>Yes. Play it anywhere, post it, share it. It's your song.</p></details>
+    <details><summary>What if a name is sung wrong?</summary><p>Reply to your song email and we'll redo it once for free. Spelling a tricky name the way it sounds helps (for example "Pawlee").</p></details>
+    <details><summary>Is my story private?</summary><p>Yes. Your song lives on a private link only you get. We never post customer songs without asking.</p></details>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>Roast &amp; Toast Records · Michigan · run by Pauly Services LLC</span><span>Orders online only</span></div></footer>
+
+<audio id="au" preload="none"></audio>
+<script>
+const SAMPLES=[
+ {k:"birthday",t:"Linda's Garden Party",o:"Birthday",s:"Country rock duet",w:"For Mom, who loves her garden and Elvis"},
+ {k:"wedding",t:"Jake and Emily",o:"Wedding",s:"Acoustic country ballad",w:"Their first dance"},
+ {k:"anniversary",t:"Twenty Five Years",o:"Anniversary",s:"Classic soul duet",w:"Mike and Donna, 25 years"},
+ {k:"pet",t:"Biscuit the Goodest Boy",o:"Pet song",s:"Banjo and ukulele country",w:"A golden retriever who steals sandwiches"},
+ {k:"memorial",t:"Grandpa's Porch Light",o:"Memorial",s:"Country gospel",w:"In loving memory of Grandpa Joe"},
+ {k:"roast",t:"Steve Can't Grill",o:"Funny roast",s:"Heavy metal comedy",w:"Steve's 40th, worst griller alive"}];
+const PLAY='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l14 8-14 8z"/></svg>',PAUSE='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+const list=document.getElementById('setlist'),au=document.getElementById('au');let cur=null;
+SAMPLES.forEach(x=>{const d=document.createElement('article');d.className='track';d.id='t-'+x.k;
+ d.innerHTML=`<div class="cover" style="background-image:url(img/${x.k}.jpg)"><span class="tag">${x.o}</span><h3>${x.t}</h3><button class="play" aria-label="Play ${x.t}">${PLAY}</button></div><div class="meta"><span>${x.w}</span><span>${x.s}</span></div><div class="bar"><i></i></div>`;
+ d.querySelector('.play').onclick=()=>toggle(x.k);list.appendChild(d)});
+function toggle(k){if(cur===k&&!au.paused){au.pause();return}
+ if(cur!==k){au.src='samples/'+k+'.mp3';cur=k}au.play().catch(()=>{})}
+function paint(){document.querySelectorAll('.track').forEach(t=>{const on=t.id==='t-'+cur&&!au.paused;t.classList.toggle('on',on);t.querySelector('.play').innerHTML=on?PAUSE:PLAY})}
+au.addEventListener('play',paint);au.addEventListener('pause',paint);au.addEventListener('ended',paint);
+au.addEventListener('timeupdate',()=>{const b=document.querySelector('#t-'+cur+' .bar i');if(b&&au.duration)b.style.width=(au.currentTime/au.duration*100)+'%'});
+document.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{document.getElementById('pkg').value=b.dataset.pkg;document.getElementById('order').scrollIntoView({behavior:'smooth'});document.getElementById('who').focus({preventScroll:true})});
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const g=id=>document.getElementById(id).value.trim();
+ const out=document.getElementById('done');const miss=['who','story','email'].filter(i=>!g(i));
+ if(miss.length){out.hidden=false;out.textContent='Please fill in: '+miss.map(m=>({who:'who it is for',story:'the story',email:'your email'})[m]).join(', ')+'.';return}
+ out.hidden=false;out.textContent=`Got it: a ${g('style')} ${g('occ').toLowerCase()} song for ${g('who')}. Checkout opens when the shop goes live, so nothing was charged.`});
+const layers=[...document.querySelectorAll('.layer')];const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!rm)addEventListener('scroll',()=>{const y=scrollY;if(y>900)return;layers.forEach(l=>l.style.transform=`translateY(${y*l.dataset.depth*.4}px)`)},{passive:true});
+</script>
+
+</body></html>
